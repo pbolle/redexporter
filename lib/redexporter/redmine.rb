@@ -15,7 +15,7 @@ module RedExporter::Redmine
     data = PrometheusExporter::Metric::Gauge.new('redmine_sessions_count', 'Number of sessions in the Redmine')
     # -1 becouse it is anonymous
     begin
-      data.observe User.where("last_login_on < ?", 5.seconds.ago).count - 1
+      data.observe User.where("last_login_on < ?", 5.minutes.ago).count - 1
     rescue
       data.observe 0
     end
