@@ -3,7 +3,7 @@ class RedexporterSettingsController < ApplicationController
   menu_item :redexporter_settings
 
   layout 'admin'
-  before_filter :require_admin
+  before_action :require_admin
 
   def index
 
